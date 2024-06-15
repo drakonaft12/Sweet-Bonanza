@@ -19,13 +19,13 @@ public class GamePole : MonoBehaviour
     [SerializeField] private float _Bank = 0;
 
     [SerializeField] private TextMeshProUGUI _stavTxt;
-    [SerializeField] private TextMeshProUGUI _frееspinTxt;
+    [SerializeField] private TextMeshProUGUI _frРµРµspinTxt;
     [SerializeField] private TextMeshProUGUI _comboTxt;
     [SerializeField] private TextMeshProUGUI _pointTxt;
     [SerializeField] private TextMeshProUGUI _bankTxt;
     private int _isReset;
     private int _valueOfFruckType = 11;
-    private int _otstup = 25; //Отстyп сверхy
+    private int _otstup = 25; //РћС‚СЃС‚yРї СЃРІРµСЂС…y
 
     bool isMove = true;
     bool TaskVork = true;
@@ -69,7 +69,7 @@ public class GamePole : MonoBehaviour
         }
     }
     /// <summary>
-    /// Метод создаёт всё поле (оно должно быть пyстым)
+    /// РњРµС‚РѕРґ СЃРѕР·РґР°С‘С‚ РІСЃС‘ РїРѕР»Рµ (РѕРЅРѕ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РїyСЃС‚С‹Рј)
     /// </summary>
     public async Task Create()
     {
@@ -86,7 +86,7 @@ public class GamePole : MonoBehaviour
         StartSpawn = true;
     }
     /// <summary>
-    /// Метод создаёт блок в записанных координатах (не следит за наличием имеющегося блока в координате, координаты ячейки)
+    /// РњРµС‚РѕРґ СЃРѕР·РґР°С‘С‚ Р±Р»РѕРє РІ Р·Р°РїРёСЃР°РЅРЅС‹С… РєРѕРѕСЂРґРёРЅР°С‚Р°С… (РЅРµ СЃР»РµРґРёС‚ Р·Р° РЅР°Р»РёС‡РёРµРј РёРјРµСЋС‰РµРіРѕСЃСЏ Р±Р»РѕРєР° РІ РєРѕРѕСЂРґРёРЅР°С‚Рµ, РєРѕРѕСЂРґРёРЅР°С‚С‹ СЏС‡РµР№РєРё)
     /// </summary>
     private void Spawn(int x, int y)
     {
@@ -179,20 +179,20 @@ public class GamePole : MonoBehaviour
             _valueOfPoint = 0;
         }
 
-        UpdatеTеxt();
+        UpdatРµTРµxt();
     }
 
-    private void UpdatеTеxt()
+    private void UpdatРµTРµxt()
     {
         _stavTxt.text = stavka.ToString();
         _pointTxt.text = _valueOfPoint.ToString();
         _comboTxt.text = _valueOfPointCombination.ToString();
         _bankTxt.text = _Bank.ToString();
-        _frееspinTxt.text = _valueOfFreeResets.ToString();
+        _frРµРµspinTxt.text = _valueOfFreeResets.ToString();
     }
 
     /// <summary>
-    /// Метод ищет возможные комбинации. Есть как специальные, так и общие.
+    /// РњРµС‚РѕРґ РёС‰РµС‚ РІРѕР·РјРѕР¶РЅС‹Рµ РєРѕРјР±РёРЅР°С†РёРё. Р•СЃС‚СЊ РєР°Рє СЃРїРµС†РёР°Р»СЊРЅС‹Рµ, С‚Р°Рє Рё РѕР±С‰РёРµ.
     /// </summary>
     private async Task FindCombination()
     {
@@ -223,7 +223,7 @@ public class GamePole : MonoBehaviour
     }
 
     /// <summary>
-    /// Метод обычной комбинации. Если одинаковых блоков больше 7, то они подсчитываются и yдаляются. Даются очки.
+    /// РњРµС‚РѕРґ РѕР±С‹С‡РЅРѕР№ РєРѕРјР±РёРЅР°С†РёРё. Р•СЃР»Рё РѕРґРёРЅР°РєРѕРІС‹С… Р±Р»РѕРєРѕРІ Р±РѕР»СЊС€Рµ 7, С‚Рѕ РѕРЅРё РїРѕРґСЃС‡РёС‚С‹РІР°СЋС‚СЃСЏ Рё yРґР°Р»СЏСЋС‚СЃСЏ. Р”Р°СЋС‚СЃСЏ РѕС‡РєРё.
     /// </summary>
     private async Task Comb8(int i)
     {
@@ -266,7 +266,7 @@ public class GamePole : MonoBehaviour
         }
     }
     /// <summary>
-    /// Метод комбинации 9. Если больше 3, даётся 10 фриспинов.
+    /// РњРµС‚РѕРґ РєРѕРјР±РёРЅР°С†РёРё 9. Р•СЃР»Рё Р±РѕР»СЊС€Рµ 3, РґР°С‘С‚СЃСЏ 10 С„СЂРёСЃРїРёРЅРѕРІ.
     /// </summary>
     private async Task Comb4(int i)
     {
@@ -312,7 +312,7 @@ public class GamePole : MonoBehaviour
     }
 
     /// <summary>
-    /// Метод комбинации 10. Если есть комбинация, то yничтожает этот блок и yмножает на его значение
+    /// РњРµС‚РѕРґ РєРѕРјР±РёРЅР°С†РёРё 10. Р•СЃР»Рё РµСЃС‚СЊ РєРѕРјР±РёРЅР°С†РёСЏ, С‚Рѕ yРЅРёС‡С‚РѕР¶Р°РµС‚ СЌС‚РѕС‚ Р±Р»РѕРє Рё yРјРЅРѕР¶Р°РµС‚ РЅР° РµРіРѕ Р·РЅР°С‡РµРЅРёРµ
     /// </summary>
     private async Task Bombs(int i)
     {
@@ -360,9 +360,9 @@ public class GamePole : MonoBehaviour
     }
 
     /// <summary>
-    /// Метод расчёта очков комбинации.
+    /// РњРµС‚РѕРґ СЂР°СЃС‡С‘С‚Р° РѕС‡РєРѕРІ РєРѕРјР±РёРЅР°С†РёРё.
     /// </summary>
-    /// <param name="cordinateCombination">Точки комбинации (для сложных расчётов)</param>
+    /// <param name="cordinateCombination">РўРѕС‡РєРё РєРѕРјР±РёРЅР°С†РёРё (РґР»СЏ СЃР»РѕР¶РЅС‹С… СЂР°СЃС‡С‘С‚РѕРІ)</param>
     private float AddPoints(List<Vector2> cordinateCombination)
     {
         float points = 0;
@@ -406,7 +406,7 @@ public class GamePole : MonoBehaviour
     }
 
     /// <summary>
-    /// Метод перемещает блоки ниже на свободные ячейки.
+    /// РњРµС‚РѕРґ РїРµСЂРµРјРµС‰Р°РµС‚ Р±Р»РѕРєРё РЅРёР¶Рµ РЅР° СЃРІРѕР±РѕРґРЅС‹Рµ СЏС‡РµР№РєРё.
     /// </summary>
     private async Task Gravitation()
     {
@@ -448,7 +448,7 @@ public class GamePole : MonoBehaviour
             DeletePoleAsync();
     }
     /// <summary>
-    /// Метод перезагржает поле.
+    /// РњРµС‚РѕРґ РїРµСЂРµР·Р°РіСЂР¶Р°РµС‚ РїРѕР»Рµ.
     /// </summary>
     public async void DeletePoleAsync()
     {
@@ -479,17 +479,17 @@ public class GamePole : MonoBehaviour
 }
 public enum Fruts : int
 {
-    Арбуз = 0,
-    Банан = 1,
-    Виноград = 2,
-    Слива = 3,
-    Яблоко = 4,
-    Зелёная = 5,
-    Синяя = 6,
-    Фиолетовая = 7,
-    Сердце = 8,
-    Леденец = 9,
-    Бомба = 10
+    РђСЂР±СѓР· = 0,
+    Р‘Р°РЅР°РЅ = 1,
+    Р’РёРЅРѕРіСЂР°Рґ = 2,
+    РЎР»РёРІР° = 3,
+    РЇР±Р»РѕРєРѕ = 4,
+    Р—РµР»С‘РЅР°СЏ = 5,
+    РЎРёРЅСЏСЏ = 6,
+    Р¤РёРѕР»РµС‚РѕРІР°СЏ = 7,
+    РЎРµСЂРґС†Рµ = 8,
+    Р›РµРґРµРЅРµС† = 9,
+    Р‘РѕРјР±Р° = 10
 }
 
 [Serializable]
