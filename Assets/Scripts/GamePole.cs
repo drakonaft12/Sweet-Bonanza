@@ -35,6 +35,7 @@ public class GamePole : MonoBehaviour
     private int[] typeBlocks;
     private void Awake()
     {
+        Application.targetFrameRate = 50;
         typeBlocks = new int[_valueOfFruckType];
         blocks = new List<Block>[(int)size.x+1];
         for (int i = 0; i < (int)size.x; i++)
