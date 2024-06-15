@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 public class GamePole : MonoBehaviour
@@ -30,6 +31,7 @@ public class GamePole : MonoBehaviour
     bool isMove = true;
     bool TaskVork = true;
     bool VorkButton = true;
+    bool WorkB = false;
     bool StartSpawn = true;
 
     private int[] typeBlocks;
@@ -166,7 +168,7 @@ public class GamePole : MonoBehaviour
             }
         }
         isMove = move;
-
+        WorkB = _valueOfFreeResets == 0 && !isMove && _isReset > 6;
         if (_valueOfFreeResets > 0 && _isReset > 4)
         {
             DeletePole();
@@ -442,10 +444,20 @@ public class GamePole : MonoBehaviour
         }
     }
 
+    public void DeletePoleButton()
+    {
+        if (WorkB&& VorkButton)
+        {
+            _isReset = 0;
+            WorkB = false;
+            DeletePole();
+        }
+    }
     public void DeletePole()
     {
         if (VorkButton)
             DeletePoleAsync();
+        VorkButton = false;
     }
     /// <summary>
     /// Метод перезагржает поле.

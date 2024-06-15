@@ -209,7 +209,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1796983102}
         m_TargetAssemblyTypeName: GamePole, Assembly-CSharp
-        m_MethodName: DeletePole
+        m_MethodName: DeletePoleButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -7,7 +7,7 @@ public class Fructs : MonoBehaviour
     Image _image;
     Transform _transform;
     [SerializeField]GameObject _gameObjectImage;
-    float speed = 40;
+    float speed = 1400;
     bool isMove = false;
     bool isGoMove = true;
     WaitForSeconds wait = new WaitForSeconds(0.045f);
@@ -91,7 +91,7 @@ public class Fructs : MonoBehaviour
     {
         if (Vector3.Distance(transform.position , _transform.position)>20 && isGoMove)
         {
-            transform.position += (_transform.position - transform.position).normalized * speed;
+            transform.position += (_transform.position - transform.position).normalized * speed * Time.deltaTime;
             _gameObjectImage.transform.position = transform.position;
             isMove = true;
         }
