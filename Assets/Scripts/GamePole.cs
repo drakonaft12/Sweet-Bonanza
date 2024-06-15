@@ -469,6 +469,7 @@ public class GamePole : MonoBehaviour
         }
         await Task.Delay(250);
         typeBlocks = new int[_valueOfFruckType];
+        TaskVork = false;
         await Create();
         await Task.Delay(1000);
         TaskUpdate();
