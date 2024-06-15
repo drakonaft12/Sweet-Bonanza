@@ -36,19 +36,19 @@ public class GamePole : MonoBehaviour
     private void Awake()
     {
         typeBlocks = new int[_valueOfFruckType];
-        blocks = new List<Block>[(int)size.x];
+        blocks = new List<Block>[(int)size.x+1];
         for (int i = 0; i < (int)size.x; i++)
         {
             blocks[i] = new List<Block>();
         }
         blocksFromDelete = new List<Block>();
     }
-    private void Start()
+    private async void Start()
     {
         (transform as RectTransform).sizeDelta = new Vector2(size.x * foot.x, size.y * foot.y + _otstup);
         transform.position += Vector3.up * _otstup;
 
-        Create();
+        await Create();
         TaskUpdate();
         FindUpdate();
     }
@@ -70,7 +70,7 @@ public class GamePole : MonoBehaviour
     /// <summary>
     /// ћетод создаЄт всЄ поле (оно должно быть пyстым)
     /// </summary>
-    public async void Create()
+    public async Task Create()
     {
         StartSpawn = false;
         TaskVork = true;
@@ -130,6 +130,11 @@ public class GamePole : MonoBehaviour
     {
         while (TaskVork)
         {
+            if (isMove)
+            {
+                await Task.Delay(100);
+                
+            }
             await FindCombination();
             if (_isReset < 10)
                 _isReset++;
@@ -463,7 +468,7 @@ public class GamePole : MonoBehaviour
         }
         await Task.Delay(250);
         typeBlocks = new int[_valueOfFruckType];
-        Create();
+        await Create();
         await Task.Delay(1000);
         TaskUpdate();
         FindUpdate();
