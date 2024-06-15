@@ -453,6 +453,7 @@ public class GamePole : MonoBehaviour
     public async void DeletePoleAsync()
     {
         TaskVork = false;
+        StartSpawn = false;
 
         for (int x = 0; x < size.x; x++)
         {
