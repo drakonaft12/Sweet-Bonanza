@@ -1624,6 +1624,7 @@ MonoBehaviour:
   _comboTxt: {fileID: 991286288}
   _pointTxt: {fileID: 1282527496}
   _bankTxt: {fileID: 948518643}
+  _button: {fileID: 162598114}
 --- !u!114 &1796983103
 MonoBehaviour:
   m_ObjectHideFlags: 0
