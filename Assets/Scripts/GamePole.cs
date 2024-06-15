@@ -61,7 +61,7 @@ public class GamePole : MonoBehaviour
 
     private void OnEnable()
     {
-        if (!TaskVork)
+        if (!TaskVork && StartSpawn)
         {
             TaskVork = true;
             TaskUpdate();
@@ -74,7 +74,6 @@ public class GamePole : MonoBehaviour
     public async Task Create()
     {
         StartSpawn = false;
-        TaskVork = true;
         for (int x = 0; x < size.x; x++)
         {
             for (int y = 0; y < size.y; y++)
@@ -83,6 +82,7 @@ public class GamePole : MonoBehaviour
             }
             await Task.Delay(100);
         }
+        TaskVork = true;
         StartSpawn = true;
     }
     /// <summary>
