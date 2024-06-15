@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using TMPro;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GamePole : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class GamePole : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _comboTxt;
     [SerializeField] private TextMeshProUGUI _pointTxt;
     [SerializeField] private TextMeshProUGUI _bankTxt;
+    [SerializeField] private Button _button;
+
     private int _isReset;
     private int _valueOfFruckType = 11;
     private int _otstup = 25; //Отстyп сверхy
@@ -168,7 +171,8 @@ public class GamePole : MonoBehaviour
             }
         }
         isMove = move;
-        WorkB = _valueOfFreeResets == 0 && !isMove && _isReset > 6;
+        _button.interactable = _valueOfFreeResets == 0 && !isMove && _isReset > 4;
+        WorkB = _valueOfFreeResets == 0 && !isMove && _isReset > 4;
         if (_valueOfFreeResets > 0 && _isReset > 4)
         {
             DeletePole();
