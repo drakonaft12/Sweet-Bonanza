@@ -87,14 +87,17 @@ public class Fructs : MonoBehaviour
     /// <summary>
     /// Класс Fructs - это просто графическая часть, которая следyет за блоками. isMovе - единственное, что влияет на механникy
     /// </summary>
-    public void Update()
+    public void FixedUpdate()
     {
-        if (Vector3.Distance(transform.position , _transform.position)>20 && isGoMove)
+        if (Vector3.Distance(transform.position, _transform.position) > 30 && isGoMove)
         {
-            transform.position += (_transform.position - transform.position).normalized * speed * Time.deltaTime;
+            transform.position += (_transform.position - transform.position).normalized * speed * Time.fixedDeltaTime;
             _gameObjectImage.transform.position = transform.position;
             isMove = true;
         }
-        else { isMove = false; }
+        else {
+            transform.position = _transform.position;
+            isMove = false;
+        }
     }
 }
